@@ -11,7 +11,11 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
     <!--google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -21,12 +25,23 @@
         <div class="icons">
           <i class="bx bx-home-alt"></i>
           <div class="searchbox">
-            <input type="text" />
-            <i class="bx bx-search-alt-2"></i>
+            <div class="search-form">
+              <input type="text" class="search-input" />
+              <i class="bx bx-search-alt-2 search-btn"></i>
+            </div>
+            <div class="search-results">
+              <ul>
+                <li>sd</li>
+                <li>sd</li>
+                <li>sd</li>
+                <li>sd</li>
+              </ul>
+            </div>
           </div>
           <i class="bx bx-menu"></i>
         </div>
       </nav>
     </header>
+    <script src="./scripts.js"></script>
   </body>
 </html>

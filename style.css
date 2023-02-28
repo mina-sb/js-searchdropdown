@@ -1,59 +1,128 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'IBM Plex Sans', sans-serif;}
-:root{
-    --text-color : #4b4b4b;
-    --bg-color:#f8f7f7;
-    --main-color:#f29494;
-    --second-color:#fff;
-    --other-color: #868686;
-    --big-font : 4.5rem;
-    --p-font: 1rem;
+    font-family: 'Poppins';
 }
 
-body{
-    background-color:var(--bg-color);
+:root {
+    --text-color: #292929;
+    --bg-color: #f8f7f7;
+    --other-color: #868686;
 }
-nav{
+
+body {
+    background-color: var(--bg-color);
+}
+
+nav {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     background-color: var(--second-color);
     align-items: center;
-    box-shadow: rgba(22, 23, 26, 0.1) 0 10px 30px -10px;}
-.logo{
-    font-size: 1.5rem;
+    box-shadow: rgba(22, 23, 26, 0.1) 0 10px 30px -10px;
+}
+
+.logo {
+    font-size: 1rem;
     font-weight: bold;
     color: var(--text-color);
 }
-.icons{
+
+.icons {
     display: flex;
     align-items: center;
 }
-.icons i{
-    padding:0.8rem 0.8rem;
-    font-size: 1.2rem;
+
+.icons i {
+    padding: 0.4rem;
+    font-size: 1.3rem;
     border-radius: 50%;
     cursor: pointer;
     transition: all ease .55s;
+    z-index: 10000;
+
 }
-.icons i:hover{
-    background-color: var(--bg-color);
+
+.icons i:hover {
+    background-color: rgba(22, 23, 26, 0.2);
 }
-.searchbox{
-    margin:0rem 0.5rem;
+
+.searchbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.open-searchbox {
+    border-radius: 20px;
+    position: relative;
+}
+
+.searchbox-bg {
+    background-color: rgba(22, 23, 26, 0.1);
+}
+
+.search-form {
+    padding: 0.3rem;
     display: flex;
     align-items: center;
     vertical-align: middle;
 }
-input{
+
+input {
     border: none;
     padding: 0;
     width: 0;
+    transition: all ease .7s;
+    font-size: 0.8rem;
+    background-color: transparent;
+    z-index: 10000;
+    font-weight: 600;
+    color: var(--text-color);
 }
-input:focus{
+
+input:focus {
     border: none;
     outline: none;
+}
+
+.open-input {
+    width: 7rem;
+    padding-left: .7rem;
+
+}
+
+.search-results {
+    position: absolute;
+    top: 0rem;
+    right: 0;
+    left: 0;
+    padding-top: 2rem;
+    display: none;
+    background-color: rgba(22, 23, 26, 0.1);
+    border-radius: 20px;
+}
+
+.open-search-results {
+    display: block;
+}
+
+.search-results ul li {
+    list-style: none;
+    padding: 0.2rem 1rem;
+    font-size: .8rem;
+    color: var(--text-color);
+
+    font-weight: 600;
+}
+
+@media screen and (min-width:600px) {
+    nav {
+        padding: 0.5rem 3rem;
+    }
+
+    .open-input {
+        width: 10rem;
+    }
 }
