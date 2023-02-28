@@ -2,6 +2,19 @@ let searchBtn = document.querySelector(".search-btn");
 let searchInput = document.querySelector(".search-input");
 let searchbox = document.querySelector(".searchbox");
 let searchResults = document.querySelector(".search-results");
+let searchList = document.querySelector(".search-list");
+let cars = [
+  "Bentley",
+  "fiat",
+  "ford",
+  "gmc",
+  "hummer",
+  "honda",
+  "jeep",
+  "kia",
+  "mazda",
+  "nissan",
+];
 
 searchBtn.onclick = () => {
   searchInput.classList.toggle("open-input");
@@ -19,14 +32,26 @@ searchBtn.onclick = () => {
 
 searchInput.addEventListener("input", (e) => {
   if (e.target.value) {
-    if (searchResults.classList.contains("open-search-results")) {
+    let f = cars.filter(function (i) {
+      return i.startsWith(e.target.value.toLowerCase());
+    });
+    searchList.innerHTML = "";
+    f.map((i) => {
+      var li = document.createElement("li");
+      li.innerHTML = i;
+      searchList.appendChild(li);
+    });
+    if (f.length > 0) {
+      if (searchResults.classList.contains("open-search-results")) {
+      } else {
+        searchResults.classList.add("open-search-results");
+
+        searchbox.classList.remove("searchbox-bg");
+      }
     } else {
-      searchResults.classList.add("open-search-results");
-      searchbox.classList.remove("searchbox-bg");
+      searchResults.classList.remove("open-search-results");
+      searchbox.classList.add("searchbox-bg");
     }
-  } else {
-    searchResults.classList.remove("open-search-results");
-    searchbox.classList.add("searchbox-bg");
   }
 });
 
