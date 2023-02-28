@@ -3,6 +3,8 @@ let searchInput = document.querySelector(".search-input");
 let searchbox = document.querySelector(".searchbox");
 let searchResults = document.querySelector(".search-results");
 let searchList = document.querySelector(".search-list");
+let searchItem = document.querySelector(".search-item");
+
 let cars = [
   "Bentley",
   "fiat",
@@ -27,6 +29,7 @@ searchBtn.onclick = () => {
     searchBtn.classList.replace("bx-x", "bx-search-alt-2");
     searchbox.classList.remove("searchbox-bg");
     searchResults.classList.remove("open-search-results");
+    searchInput.value = "";
   }
 };
 
@@ -39,13 +42,18 @@ searchInput.addEventListener("input", (e) => {
     f.map((i) => {
       var li = document.createElement("li");
       li.innerHTML = i;
+      li.classList.add("search-item");
+      li.onclick = function () {
+        e.target.value = li.innerText;
+        searchResults.classList.remove("open-search-results");
+        searchbox.classList.add("searchbox-bg");
+      };
       searchList.appendChild(li);
     });
     if (f.length > 0) {
       if (searchResults.classList.contains("open-search-results")) {
       } else {
         searchResults.classList.add("open-search-results");
-
         searchbox.classList.remove("searchbox-bg");
       }
     } else {
@@ -54,7 +62,3 @@ searchInput.addEventListener("input", (e) => {
     }
   }
 });
-
-function updateValue(e) {
-  log.textContent = e.target.value;
-}
